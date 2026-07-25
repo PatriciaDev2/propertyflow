@@ -1,57 +1,63 @@
 function Tenants({ setScreen }) {
 
-    const tenants = [
-      {
-        name: "Maria Lopez",
-        property: "123 Main Street",
-        status: "Paid ✅"
-      },
-      {
-        name: "James Carter",
-        property: "456 Oak Avenue",
-        status: "Due ⚠️"
-      },
-      {
-        name: "Ana Garcia",
-        property: "789 Pine Road",
-        status: "Paid ✅"
-      }
-    ];
-  
-  
-    return (
-      <div className="card large">
-  
-        <h1>👥 Tenants</h1>
-  
-  
+  const tenants = [
+    {
+      name: "Maria Lopez",
+      property: "Sunset Villas",
+      status: "Paid ✅"
+    },
+    {
+      name: "James Carter",
+      property: "Oak Ridge Apartments",
+      status: "Due ⚠️"
+    },
+    {
+      name: "Sarah Nguyen",
+      property: "Riverstone Townhomes",
+      status: "Paid ✅"
+    }
+  ];
+
+  return (
+
+    <div className="card large">
+
+      <h1>👥 Tenants</h1>
+
+      <div className="grid">
+
         {tenants.map((tenant, index) => (
-  
+
           <div className="box" key={index}>
-  
-            <h3>
-              {tenant.name}
-            </h3>
-  
-            <p>
-              Property: {tenant.property}
-            </p>
-  
-            <p>
-              Payment: {tenant.status}
-            </p>
-  
+
+            <h3>{tenant.name}</h3>
+
+            <p>{tenant.property}</p>
+
+            <p>{tenant.status}</p>
+
+            <button
+              onClick={() => setScreen("tenantProfiles")}
+            >
+              View Profile
+            </button>
+
           </div>
-  
+
         ))}
-  
-  
-        <button onClick={() => setScreen("admin")}>
-          ← Back
-        </button>
-  
+
       </div>
-    );
-  }
-  
-  export default Tenants;
+
+      <button
+        className="secondary"
+        onClick={() => setScreen("admin")}
+      >
+        ← Dashboard
+      </button>
+
+    </div>
+
+  );
+}
+
+export default Tenants;

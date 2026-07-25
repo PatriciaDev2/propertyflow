@@ -1,60 +1,77 @@
 function Properties({ setScreen }) {
+  const properties = [
+    {
+      id: 1,
+      name: "Sunset Villas",
+      units: 24,
+      occupied: 22,
+      revenue: "$28,600"
+    },
+    {
+      id: 2,
+      name: "Oak Ridge Apartments",
+      units: 36,
+      occupied: 34,
+      revenue: "$43,200"
+    },
+    {
+      id: 3,
+      name: "Riverstone Townhomes",
+      units: 18,
+      occupied: 17,
+      revenue: "$22,100"
+    }
+  ];
 
-    const properties = [
-      {
-        address: "123 Main Street",
-        tenant: "Maria Lopez",
-        rent: "$1,250",
-        status: "Occupied"
-      },
-      {
-        address: "456 Oak Avenue",
-        tenant: "James Carter",
-        rent: "$1,500",
-        status: "Occupied"
-      },
-      {
-        address: "789 Pine Road",
-        tenant: "Available",
-        rent: "$1,100",
-        status: "Vacant"
-      }
-    ];
-  
-  
-    return (
-      <div className="card large">
-  
-        <h1>🏠 Properties</h1>
-  
-  
-        {properties.map((property, index) => (
-          <div className="box" key={index}>
-  
-            <h3>{property.address}</h3>
-  
-            <p>
-              Tenant: {property.tenant}
-            </p>
-  
-            <p>
-              Rent: {property.rent}
-            </p>
-  
-            <p>
-              Status: {property.status}
-            </p>
-  
+  return (
+    <div className="card large">
+
+      <h1>🏠 Properties</h1>
+
+      <p className="subtitle">
+        Manage all properties from one place.
+      </p>
+
+      <div className="grid">
+
+        {properties.map((property) => (
+
+          <div className="box" key={property.id}>
+
+            <h3>{property.name}</h3>
+
+            <p><strong>Units:</strong> {property.units}</p>
+
+            <p><strong>Occupied:</strong> {property.occupied}</p>
+
+            <p><strong>Monthly Revenue:</strong> {property.revenue}</p>
+
+            <button>
+              View Property
+            </button>
+
           </div>
+
         ))}
-  
-  
-        <button onClick={() => setScreen("admin")}>
-          ← Back
-        </button>
-  
+
       </div>
-    );
-  }
-  
-  export default Properties;
+
+      <button
+        className="secondary"
+        onClick={() => setScreen("addProperty")}
+      >
+        ➕ Add Property
+      </button>
+
+      <button
+        className="secondary"
+        onClick={() => setScreen("admin")}
+      >
+        ← Dashboard
+      </button>
+
+    </div>
+  );
+}
+
+export default Properties;
